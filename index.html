@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script> <!-- adding jQuery library -->
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> <!-- adding jQueryUI CDN -->
+        <link rel="stylesheet" href="css/main.css">
+        <title>CryptoMania</title>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+
+        <!-- Main container holding entire page -->
+        <div>
+
+            <!-- Header Section -->
+            <header>
+                <h1>CryptoMania</h1>
+            </header>
+            
+            <!-- Main Container -->
+            <div id="main-container">
+
+                <!-- Accordion -->
+                <div id="accordion">
+                    <h3>Current Price</h3>
+                    <div>
+                        <p>Description 1</p>
+
+                        <div>
+                            <label for="coins">Choose a coin:</label>
+                            <select name="coins" id="coins">
+                                <option value="bitcoin">Bitcoin</option>
+                                <option value="ethereum">Ethereum</option>
+                                <option value="doge">Doge</option>
+                                <option value="solana">Solana</option>
+                                <option value="xrp">XRP</option>
+                            </select>
+                        </div>
+
+                        <input type="submit" value="Submit">
+
+                    </div>
+                    <h3>Compare Coins</h3>
+                    <div>
+
+                        <p>Description 2</p>
+
+                        <div>
+                            <label for="choice1">Choose 1st coin:</label>
+                            <select name="choice1" id="choice1">
+                                <option value="bitcoin">Bitcoin</option>
+                                <option value="ethereum">Ethereum</option>
+                                <option value="doge">Doge</option>
+                                <option value="solana">Solana</option>
+                                <option value="xrp">XRP</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="choice2">Choose 2nd coin:</label>
+                            <select name="choice2" id="choice2">
+                                <option value="bitcoin">Bitcoin</option>
+                                <option value="ethereum">Ethereum</option>
+                                <option value="doge">Doge</option>
+                                <option value="solana">Solana</option>
+                                <option value="xrp">XRP</option>
+                            </select>
+                        </div>
+                        
+                        <input type="submit" value="Submit">
+
+                    </div>
+                    <h3>Converter</h3>
+                    <div>
+                        <p>Description 3</p>
+
+                        <div>
+                            <label for="choice2">Choose coin to convert:</label>
+                            <select name="choice2" id="choice2">
+                                <option value="bitcoin">Bitcoin</option>
+                                <option value="ethereum">Ethereum</option>
+                                <option value="doge">Doge</option>
+                                <option value="solana">Solana</option>
+                                <option value="xrp">XRP</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="con2coin" id="con2coin-label">Enter Amount in Dollars:</label>
+                            <input type="textarea" name="con2coin" id="con2coin">
+                        </div>
+                        
+                        <div>
+                            <label for="con2dol" id="con2dol-label">Enter Amount in Coins:</label>
+                            <input type="textarea" name="con2dol" id="con2dol">
+                        </div>
+
+                        <input type="submit" value="Submit">
+                    </div>
+                    <h3>History</h3>
+                    <div>
+                        <p>Description 1</p>
+
+                        <div>
+                            <label for="coins">Choose a coin:</label>
+                            <select name="coins" id="coins">
+                                <option value="bitcoin">Bitcoin</option>
+                                <option value="ethereum">Ethereum</option>
+                                <option value="doge">Doge</option>
+                                <option value="solana">Solana</option>
+                                <option value="xrp">XRP</option>
+                            </select>
+                        </div>
+
+                        <input type="submit" value="Submit">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Display Container Section -->
+
+            <div id="results-container">
+
+            </div>
+        </div>
+
+        
+        <script src="js/script.js"></script> <!-- Custom JavaScript Link -->
+    </body>
+</html>
