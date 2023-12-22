@@ -22,3 +22,5 @@ if (con2coin.value && con2dol.value) {
 $( function() {
     $( "#accordion" ).accordion();
   } );
+
+  
