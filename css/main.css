@@ -5,14 +5,19 @@
 }
 
 body{
-  background-color: beige;
+  background-color: white;
 }
 
 h3{
   font-family: 'Times New Roman', Times, serif;
-
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  margin-bottom: 1px;
 }
-
+p{
+  color: white;
+}
 /* .image{ */
   
  
@@ -45,13 +50,10 @@ h3{
   padding: 10px;
   cursor: pointer;
   background-color: white;
-  
+  background-image: url(../bitcoin-3089728_1280.jpg);
 }
 
 .acc-option{
   margin-bottom: 15px;
 }
 
-.selection-description{
-
-}
