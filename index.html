@@ -48,13 +48,13 @@
 
                     </div>
                     <h3>Compare Coins</h3>
-                    <div>
+                    <div id="compare-coins">
 
                         <p>Description 2</p>
 
                         <div>
                             <label for="choice1">Choose 1st coin:</label>
-                            <select name="choice1" id="choice1">
+                            <select name="choice1" id="compare-choice1">
                                 <option value="bitcoin">Bitcoin</option>
                                 <option value="ethereum">Ethereum</option>
                                 <option value="doge">Doge</option>
@@ -65,7 +65,7 @@
                         
                         <div>
                             <label for="choice2">Choose 2nd coin:</label>
-                            <select name="choice2" id="choice2">
+                            <select name="choice2" id="compare-choice2">
                                 <option value="bitcoin">Bitcoin</option>
                                 <option value="ethereum">Ethereum</option>
                                 <option value="doge">Doge</option>
@@ -74,7 +74,7 @@
                             </select>
                         </div>
                         
-                        <input type="submit" value="Submit">
+                        <input id="compare-submit" type="submit" value="Submit">
 
                     </div>
                     <h3>Converter</h3>
@@ -128,10 +128,10 @@
             <!-- Display Container Section -->
 
             <div id="results-container">
-                <div class="results-area"></div>
+                <div id="results-area" class="results-area"></div>
             </div>
         </div>
-
+        
         
         <script src="js/script.js"></script> <!-- Custom JavaScript Link -->
     </body>

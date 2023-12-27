@@ -12,10 +12,10 @@ var con2dol = $('#con2dol');
 
 
 
-const Url = 'https://api.minerstat.com/v2/coins?list=BTC,ETH,DOGE,'
-
+const Url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,DOGE,XRP,SOL&tsyms=USD&api_key='
+const apiKey = '05f6cda97936cba0da1b452f5b676ab29016dc22ab1ab6cb0bea9afabacffe09'
 function getData() {
-    fetch(Url)
+    fetch(Url + apiKey)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -32,6 +32,9 @@ function getData() {
 }
 
 getData();
+
+
+
 
 
 if (con2coin.value && con2dol.value) {
