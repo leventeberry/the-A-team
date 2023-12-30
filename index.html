@@ -13,11 +13,13 @@
     </head>
     <body>
 
+
         <!-- Main container holding entire page -->
         <div>
 
             <!-- Header Section -->
-            <header>
+            <header class="header-container">
+                <!-- <img class="image" src="./bitcoin-3228194_640.jpg" alt="Bitcoin"/> -->
                 <h1>CryptoMania</h1>
             </header>
             
@@ -25,13 +27,14 @@
             <div id="main-container">
 
                 <!-- Accordion -->
-                <div id="accordion">
-                    <h3>Current Price</h3>
+                <div class="accordion" id="accordion">
+                    
+                    <h3 class="section-description">Current Price</h3>
                     <div>
                         <p>Description 1</p>
 
                         <div>
-                            <label for="coins">Choose a coin:</label>
+                            <label id="d-1" for="coins">Choose a coin:</label>
                             <select name="coins" id="coins">
                                 <option value="bitcoin">Bitcoin</option>
                                 <option value="ethereum">Ethereum</option>
@@ -45,13 +48,13 @@
 
                     </div>
                     <h3>Compare Coins</h3>
-                    <div>
+                    <div id="compare-coins">
 
                         <p>Description 2</p>
 
                         <div>
                             <label for="choice1">Choose 1st coin:</label>
-                            <select name="choice1" id="choice1">
+                            <select name="choice1" id="compare-choice1">
                                 <option value="bitcoin">Bitcoin</option>
                                 <option value="ethereum">Ethereum</option>
                                 <option value="doge">Doge</option>
@@ -62,7 +65,7 @@
                         
                         <div>
                             <label for="choice2">Choose 2nd coin:</label>
-                            <select name="choice2" id="choice2">
+                            <select name="choice2" id="compare-choice2">
                                 <option value="bitcoin">Bitcoin</option>
                                 <option value="ethereum">Ethereum</option>
                                 <option value="doge">Doge</option>
@@ -71,7 +74,7 @@
                             </select>
                         </div>
                         
-                        <input type="submit" value="Submit">
+                        <input id="compare-submit" type="submit" value="Submit">
 
                     </div>
                     <h3>Converter</h3>
@@ -80,7 +83,7 @@
 
                         <div>
                             <label for="choice2">Choose coin to convert:</label>
-                            <select name="choice2" id="choice2">
+                            <select  name="choice2" id="choice2">
                                 <option value="bitcoin">Bitcoin</option>
                                 <option value="ethereum">Ethereum</option>
                                 <option value="doge">Doge</option>
@@ -125,10 +128,10 @@
             <!-- Display Container Section -->
 
             <div id="results-container">
-
+                <div id="results-area" class="results-area"></div>
             </div>
         </div>
-
+        
         
         <script src="js/script.js"></script> <!-- Custom JavaScript Link -->
     </body>
