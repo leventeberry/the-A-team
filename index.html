@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script> <!-- adding jQuery library -->
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> <!-- adding jQueryUI CDN -->
+        <link rel="stylesheet" href="/css/reset.css">
         <link rel="stylesheet" href="css/main.css">
         <title>CryptoMania</title>
         <script>
@@ -15,12 +16,12 @@
 
 
         <!-- Main container holding entire page -->
-        <div>
+        <div id="body-container">
 
             <!-- Header Section -->
-            <header class="header-container">
-                <!-- <img class="image" src="./bitcoin-3228194_640.jpg" alt="Bitcoin"/> -->
-                <h1>CryptoMania</h1>
+            <header id="header-container">
+                <img src="/img/cryptocurrency-cryptos-bitcoin-banner.jpg" alt="Bitcoin"/>
+                <h1 >CryptoMania</h1>
             </header>
             
             <!-- Main Container -->
@@ -29,7 +30,7 @@
                 <!-- Accordion -->
                 <div class="accordion" id="accordion">
                     
-                    <h3 class="section-description">Current Price</h3>
+                    <h3 class="accordion-title">Current Price</h3>
                     <div>
                         <p>Description 1</p>
 
@@ -47,7 +48,7 @@
                         <input type="submit" value="Submit">
 
                     </div>
-                    <h3>Compare Coins</h3>
+                    <h3 class="accordion-title">Compare Coins</h3>
                     <div id="compare-coins">
 
                         <p>Description 2</p>
@@ -77,7 +78,7 @@
                         <input id="compare-submit" type="submit" value="Submit">
 
                     </div>
-                    <h3>Converter</h3>
+                    <h3 class="accordion-title">Converter</h3>
                     <div>
                         <p>Description 3</p>
 
@@ -104,7 +105,7 @@
 
                         <input type="submit" value="Submit">
                     </div>
-                    <h3>History</h3>
+                    <h3 class="accordion-title">History</h3>
                     <div>
                         <p>Description 1</p>
 
@@ -123,12 +124,12 @@
 
                     </div>
                 </div>
-            </div>
 
-            <!-- Display Container Section -->
+                <!-- Display Container Section -->
 
-            <div id="results-container">
-                <div id="results-area" class="results-area"></div>
+                <div id="results-container">
+                    <div id="results-area" class="results-area"></div>
+                </div>
             </div>
         </div>
         

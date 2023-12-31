@@ -1,62 +1,100 @@
 *{
-  padding: 0;
-  margin: 0;
+  font-size: 16px; /* set base text size for all elements, then can use em for sizing */
+}
 
+:root {
+  /* color variables */
+  --main-text-color: #fff;
+  --main-text-color-alt: #000;
+  --main-bg-color: #000;
+  --main-bg-color-alt: #d1a733;
+  --header-title-outline: #d1a733;
+}
+
+html, body{
+  height: 100%;
 }
 
 body{
-  background-color: white;
-  
+  font-family: 'Times New Roman', Times, serif; /* this will target all text within the body */
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
 }
 
-h3{
-  font-family: 'Times New Roman', Times, serif;
-  background-color: black;
-  color: white;
-  border: 1px solid black;
-  margin-bottom: 1px;
-}
-p{
-  color: white;
-}
-/* .image{ */
-  
- 
+/* ```````````````` MAIN SECTION (General/Standard Settings) ````````````````*/
 
-.header-container{
-  text-align: center;
-  padding-top: 20px;
-  color: gold;
-  height: 100px;
-  object-fit: cover;
-  object-position: center;
-  background-position: top;
-  width: 100%;
-  height: 300px;
-  background-image: url(../bitcoin-3228194_640.jpg);
-  font-size: 2rem;
-  
+#body-container {
+  height: 100%;
 }
 
-.main-container{
+#main-container{
   display: flex;
+  height: 100%;
 }
+
+/* ```````````````` HEADER SECTION ````````````````*/
+
+#header-container {
+  /* font settings */
+  text-align: center;
+  /* box sizing */
+  width: 100%;
+  height: 175px;
+  /* positioning */
+  z-index: 1;
+  position: relative;
+}
+
+#header-container img {
+  width: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+#header-container h1 {
+  /* font settings */
+  font-size: 5rem;
+  color: var(--main-text-color-alt);
+  font-weight: 700;
+  text-shadow:
+    -2px -2px 0 var(--header-title-outline),
+     2px -2px 0 var(--header-title-outline),
+    -2px  2px 0 var(--header-title-outline),
+     2px  2px 0 var(--header-title-outline);
+  /* box sizing */
+  width: 100%;
+  /* positioning */
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centers h1 */
+}
+
+/* ```````````````` ACCORDION SECTION ````````````````*/
 
 .accordion{
-  box-sizing: border-box;
   border: 5px inset black;
   max-width: 200px;
   text-align: center;
-  height: 400px;
+  height: 100%;
   padding: 10px;
   cursor: pointer;
-  background-color: white;
-  background-image: url(../bitcoin-3089728_1280.jpg);
+  background-color: var(--main-bg-color-alt);
+  background-image: url(/img/bitcoin-3089728_1280.jpg);
+}
+
+.accordion-title { /* switch to class instead of h3 */ 
+  background-color: black;
+  border: 1px solid black;
+  margin-bottom: 2px;
 }
 
 .acc-option{
   margin-bottom: 15px;
 }
+
+/* ```````````````` RESULTS SECTION ````````````````*/
 
 /* input{
   background-color: gold;
