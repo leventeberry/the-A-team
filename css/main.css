@@ -12,7 +12,7 @@
 }
 
 html, body{
-  height: 100%;
+  height: 100vh;
 }
 
 body{
@@ -24,18 +24,22 @@ body{
 /* ```````````````` MAIN SECTION (General/Standard Settings) ````````````````*/
 
 #body-container {
+  /* box sizing */
   height: 100%;
 }
 
 #main-container{
-  display: flex;
+  /* box sizing */
   height: 100%;
+  /* positioning */
+  display: flex;
+  justify-content: space-between;
 }
 
 /* ```````````````` HEADER SECTION ````````````````*/
 
 #header-container {
-  /* font settings */
+  /* font styling */
   text-align: center;
   /* box sizing */
   width: 100%;
@@ -52,11 +56,11 @@ body{
 }
 
 #header-container h1 {
-  /* font settings */
+  /* font styling */
   font-size: 5rem;
   color: var(--main-text-color-alt);
   font-weight: 700;
-  text-shadow:
+  text-shadow: /* creates a stroke effect around the header text*/
     -2px -2px 0 var(--header-title-outline),
      2px -2px 0 var(--header-title-outline),
     -2px  2px 0 var(--header-title-outline),
@@ -74,41 +78,54 @@ body{
 /* ```````````````` ACCORDION SECTION ````````````````*/
 
 .accordion{
-  border: 5px inset black;
-  max-width: 200px;
+  border: 5px outset black;
+  width: 25%;
   text-align: center;
   height: 100%;
   padding: 10px;
   cursor: pointer;
   background-color: var(--main-bg-color-alt);
-  background-image: url(/img/bitcoin-3089728_1280.jpg);
 }
 
-.accordion-title { /* switch to class instead of h3 */ 
+.accordion-title {  
   background-color: black;
   border: 1px solid black;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  padding: 5px 0;
 }
 
-.acc-option{
-  margin-bottom: 15px;
+.accord-content-container {
+  background-color: var(--main-text-color);
+  margin: 10px 0;
+  color: var(--main-text-color-alt);
 }
 
-/* ```````````````` RESULTS SECTION ````````````````*/
+.p-description {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 15px;
+}
 
-/* input{
+.menu-option{
+  color: var(--main-text-color-alt);
+}
+
+input{
   background-color: gold;
   border: none;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 1.25rem;
+  padding: 5px 10px;
 }
 
 input:hover{
-  font-size: 16px;
-  transition: .5s;
+  background-color: var(--main-bg-color-alt);
   margin-top: 5px;
   cursor: pointer;
-} */
+}
+
+/* ```````````````` RESULTS SECTION ````````````````*/
 
 #results-container{
   display: flex;
@@ -118,7 +135,7 @@ input:hover{
 
 .results-area{
   width: 60%;
-  border: 1px solid black;
+  border: 1px solid var(--main-text-color);
   padding: 20px;
   text-align: center;
 }
