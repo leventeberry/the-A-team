@@ -9,10 +9,11 @@
   --main-bg-color: #000;
   --main-bg-color-alt: #d1a733;
   --header-title-outline: #d1a733;
+  --select-bg-color: rgba(194, 152, 16, 0.384);
 }
 
 html, body{
-  height: 100vh;
+  height: 80vh;
 }
 
 body{
@@ -25,12 +26,12 @@ body{
 
 #body-container {
   /* box sizing */
-  height: 100%;
+  height: 80vh;
 }
 
 #main-container{
   /* box sizing */
-  height: 100%;
+  height: 80vh;
   /* positioning */
   display: flex;
   justify-content: space-between;
@@ -43,7 +44,7 @@ body{
   text-align: center;
   /* box sizing */
   width: 100%;
-  height: 175px;
+  height: 20vh;
   /* positioning */
   z-index: 1;
   position: relative;
@@ -78,7 +79,6 @@ body{
 /* ```````````````` ACCORDION SECTION ````````````````*/
 
 .accordion{
-  border: 5px outset black;
   width: 25%;
   text-align: center;
   height: 100%;
@@ -88,8 +88,16 @@ body{
 }
 
 .accordion-title {  
-  background-color: black;
-  border: 1px solid black;
+  background-color: var(--main-bg-color);
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  padding: 5px 0;
+}
+
+.accordion-title:hover {  
+  background-color: var(--main-text-color);
+  color: var(--main-text-color-alt);
+  border: 1px solid var(--main-bg-color);
   margin-bottom: 10px;
   font-size: 1.5rem;
   padding: 5px 0;
@@ -97,29 +105,46 @@ body{
 
 .accord-content-container {
   background-color: var(--main-text-color);
+  border: 1px solid var(--main-bg-color);
   margin: 10px 0;
   color: var(--main-text-color-alt);
+  padding: 5px;
 }
 
 .p-description {
   font-size: 1.2rem;
   font-weight: 500;
-  padding: 15px;
+  padding: 10px;
+}
+
+.select-container {
+  padding: 5px;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: var(--select-bg-color);
+  border-radius: 10px;
+}
+
+.select-list {
+  color: var(--main-text-color);
+  margin: 5px 0;
 }
 
 .menu-option{
-  color: var(--main-text-color-alt);
+  text-align: center;
+  background-color: var(--main-bg-color);
 }
 
 input{
-  background-color: gold;
-  border: none;
+  background-color: var(--main-bg-color-alt);
   border-radius: 3px;
   font-size: 1.25rem;
   padding: 5px 10px;
+  margin-bottom: 10px;
 }
 
-input:hover{
+input:active{
   background-color: var(--main-bg-color-alt);
   margin-top: 5px;
   cursor: pointer;
@@ -131,11 +156,11 @@ input:hover{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60%;
 }
 
 .results-area{
-  width: 60%;
-  border: 1px solid var(--main-text-color);
+  border: 1px solid var(--header-title-outline);
   padding: 20px;
   text-align: center;
 }

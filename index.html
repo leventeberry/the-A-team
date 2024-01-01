@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script> <!-- adding jQuery library -->
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> <!-- adding jQueryUI CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+        <script>dayjs().format()</script>
         <link rel="stylesheet" href="/css/reset.css">
         <link rel="stylesheet" href="css/main.css">
         <title>CryptoMania</title>
@@ -34,7 +36,7 @@
                     <div class="accord-content-container" id="current-container">
                         <p class="p-description">Choose a coin from the drop down menu below, then click "Submit" to see the coins current price!</p>
 
-                        <div>
+                        <div class="select-container">
                             <label id="d-1" for="coins">Choose a coin:</label>
                             <select class="select-list" name="coins" id="coins">
                                 <option class="menu-option" value="bitcoin">Bitcoin</option>
@@ -51,9 +53,9 @@
                     <h3 class="accordion-title">Compare Coins</h3>
                     <div class="accord-content-container" id="compare-container">
 
-                        <p class="p-description">Description 2</p>
+                        <p class="p-description">Select two different cryptocurrencies below to compare their values! (USD)</p>
 
-                        <div>
+                        <div class="select-container">
                             <label for="choice1">Choose 1st coin:</label>
                             <select class="select-list" name="choice1" id="compare-choice1">
                                 <option class="menu-option" value="bitcoin">Bitcoin</option>
@@ -64,7 +66,7 @@
                             </select>
                         </div>
                         
-                        <div>
+                        <div class="select-container">
                             <label for="choice2">Choose 2nd coin:</label>
                             <select class="select-list" name="choice2" id="compare-choice2">
                                 <option class="menu-option" value="bitcoin">Bitcoin</option>
@@ -80,9 +82,9 @@
                     </div>
                     <h3 class="accordion-title">Converter</h3>
                     <div class="accord-content-container" id="converter-container">
-                        <p class="p-description">Description 3</p>
+                        <p class="p-description">Convert the </p>
 
-                        <div class="input-container">
+                        <div class="select-container">
                             <label for="choice2">Choose coin to convert:</label>
                             <select class="select-list" name="choice2" id="choice2">
                                 <option class="menu-option" value="bitcoin">Bitcoin</option>
