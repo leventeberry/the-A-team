@@ -52,7 +52,9 @@ if (con2coin.value && con2dol.value) {
 
 //Accordion Function
 $( function() {
-    $( "#accordion" ).accordion();
+    $( "#accordion" ).accordion({
+        heightStyle: "content"
+    });
   } );
 
   

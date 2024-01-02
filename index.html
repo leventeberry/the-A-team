@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script> <!-- adding jQuery library -->
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> <!-- adding jQueryUI CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+        <script>dayjs().format()</script>
+        <link rel="stylesheet" href="/css/reset.css">
         <link rel="stylesheet" href="css/main.css">
         <title>CryptoMania</title>
         <script>
@@ -15,120 +18,123 @@
 
 
         <!-- Main container holding entire page -->
-        <div>
+        <div id="body-container">
 
             <!-- Header Section -->
-            <header class="header-container">
-                <!-- <img class="image" src="./bitcoin-3228194_640.jpg" alt="Bitcoin"/> -->
-                <h1>CryptoMania</h1>
+            <header id="header-container">
+                <img src="/img/cryptocurrency-cryptos-bitcoin-banner.jpg" alt="Bitcoin"/>
+                <h1 >CryptoMania</h1>
             </header>
             
             <!-- Main Container -->
             <div id="main-container">
-
-                <!-- Accordion -->
-                <div class="accordion" id="accordion">
-                    
-                    <h3 class="section-description">Current Price</h3>
-                    <div>
-                        <p>Description 1</p>
-
-                        <div>
-                            <label id="d-1" for="coins">Choose a coin:</label>
-                            <select name="coins" id="coins">
-                                <option value="bitcoin">Bitcoin</option>
-                                <option value="ethereum">Ethereum</option>
-                                <option value="doge">Doge</option>
-                                <option value="solana">Solana</option>
-                                <option value="xrp">XRP</option>
-                            </select>
-                        </div>
-
-                        <input type="submit" value="Submit">
-
+                <div id="sidebar-container">
+                    <div id="accordion-header">
+                        <h2>Options Menu</h2>
                     </div>
-                    <h3>Compare Coins</h3>
-                    <div id="compare-coins">
 
-                        <p>Description 2</p>
-
-                        <div>
-                            <label for="choice1">Choose 1st coin:</label>
-                            <select name="choice1" id="compare-choice1">
-                                <option value="bitcoin">Bitcoin</option>
-                                <option value="ethereum">Ethereum</option>
-                                <option value="doge">Doge</option>
-                                <option value="solana">Solana</option>
-                                <option value="xrp">XRP</option>
-                            </select>
-                        </div>
+                    <!-- Accordion -->
+                    <div class="accordion column " id="accordion">
                         
-                        <div>
-                            <label for="choice2">Choose 2nd coin:</label>
-                            <select name="choice2" id="compare-choice2">
-                                <option value="bitcoin">Bitcoin</option>
-                                <option value="ethereum">Ethereum</option>
-                                <option value="doge">Doge</option>
-                                <option value="solana">Solana</option>
-                                <option value="xrp">XRP</option>
-                            </select>
+                        <h3 class="accordion-title">Current Price</h3>
+                        <div class="accord-content-container" id="current-container">
+                            <p class="p-description">Choose a coin from the drop down menu below, then click "Submit" to see the coins current price!</p>
+
+                            <div class="select-container">
+                                <label id="d-1" for="coins">Choose a coin:</label>
+                                <select class="select-list" name="coins" id="coins">
+                                    <option class="menu-option" value="bitcoin">Bitcoin</option>
+                                    <option class="menu-option" value="ethereum">Ethereum</option>
+                                    <option class="menu-option" value="doge">Doge</option>
+                                    <option class="menu-option" value="solana">Solana</option>
+                                    <option class="menu-option" value="xrp">XRP</option>
+                                </select>
+                            </div>
+
+                            <input type="submit" value="Submit">
+
                         </div>
-                        
-                        <input id="compare-submit" type="submit" value="Submit">
+                        <h3 class="accordion-title">Compare Coins</h3>
+                        <div class="accord-content-container" id="compare-container">
 
-                    </div>
-                    <h3>Converter</h3>
-                    <div>
-                        <p>Description 3</p>
+                            <p class="p-description">Select two different cryptocurrencies below to compare their values! (USD)</p>
 
-                        <div>
-                            <label for="choice2">Choose coin to convert:</label>
-                            <select  name="choice2" id="choice2">
-                                <option value="bitcoin">Bitcoin</option>
-                                <option value="ethereum">Ethereum</option>
-                                <option value="doge">Doge</option>
-                                <option value="solana">Solana</option>
-                                <option value="xrp">XRP</option>
-                            </select>
+                            <div class="select-container">
+                                <label for="choice1">Choose 1st coin:</label>
+                                <select class="select-list" name="choice1" id="compare-choice1">
+                                    <option class="menu-option" value="bitcoin">Bitcoin</option>
+                                    <option class="menu-option" value="ethereum">Ethereum</option>
+                                    <option class="menu-option" value="doge">Doge</option>
+                                    <option class="menu-option" value="solana">Solana</option>
+                                    <option class="menu-option" value="xrp">XRP</option>
+                                </select>
+                            </div>
+                            
+                            <div class="select-container">
+                                <label for="choice2">Choose 2nd coin:</label>
+                                <select class="select-list" name="choice2" id="compare-choice2">
+                                    <option class="menu-option" value="bitcoin">Bitcoin</option>
+                                    <option class="menu-option" value="ethereum">Ethereum</option>
+                                    <option class="menu-option" value="doge">Doge</option>
+                                    <option class="menu-option" value="solana">Solana</option>
+                                    <option class="menu-option" value="xrp">XRP</option>
+                                </select>
+                            </div>
+                            
+                            <input id="compare-submit" type="submit" value="Submit">
+
                         </div>
+                        <h3 class="accordion-title">Converter</h3>
+                        <div class="accord-content-container" id="converter-container">
+                            <p class="p-description">Convert the </p>
 
-                        <div>
-                            <label for="con2coin" id="con2coin-label">Enter Amount in Dollars:</label>
-                            <input type="textarea" name="con2coin" id="con2coin">
+                            <div class="select-container">
+                                <label for="choice2">Choose coin to convert:</label>
+                                <select class="select-list" name="choice2" id="choice2">
+                                    <option class="menu-option" value="bitcoin">Bitcoin</option>
+                                    <option class="menu-option" value="ethereum">Ethereum</option>
+                                    <option class="menu-option" value="doge">Doge</option>
+                                    <option class="menu-option" value="solana">Solana</option>
+                                    <option class="menu-option" value="xrp">XRP</option>
+                                </select>
+                            </div>
+
+                            <div class="input-container">
+                                <label for="con2coin" id="con2coin-label">Enter Amount in Dollars:</label>
+                                <input type="textarea" name="con2coin" id="con2coin">
+                            </div>
+                            
+                            <div class="input-container">
+                                <label for="con2dol" id="con2dol-label">Enter Amount in Coins:</label>
+                                <input type="textarea" name="con2dol" id="con2dol">
+                            </div>
+
+                            <input type="submit" value="Submit">
                         </div>
-                        
-                        <div>
-                            <label for="con2dol" id="con2dol-label">Enter Amount in Coins:</label>
-                            <input type="textarea" name="con2dol" id="con2dol">
+                        <h3 class="accordion-title">History</h3>
+                        <div class="accord-content-container input-container" id="history-container">
+                            <div>
+                                <ul id="history-list">
+                                    <li>Converted: XRP(100) to BTC(0.000344)</li>
+                                    <li>Converted: XRP(100) to BTC(0.000344)</li>
+                                    <li>Converted: XRP(100) to BTC(0.000344)</li>
+                                    <li>Converted: XRP(100) to BTC(0.000344)</li>
+                                </ul>
+                            </div>
+                            <input type="button" value="Clear History">
                         </div>
-
-                        <input type="submit" value="Submit">
-                    </div>
-                    <h3>History</h3>
-                    <div>
-                        <p>Description 1</p>
-
-                        <div>
-                            <label for="coins">Choose a coin:</label>
-                            <select name="coins" id="coins">
-                                <option value="bitcoin">Bitcoin</option>
-                                <option value="ethereum">Ethereum</option>
-                                <option value="doge">Doge</option>
-                                <option value="solana">Solana</option>
-                                <option value="xrp">XRP</option>
-                            </select>
-                        </div>
-
-                        <input type="submit" value="Submit">
-
                     </div>
                 </div>
-            </div>
 
-            <!-- Display Container Section -->
+                <!-- Display Container Section -->
 
-            <div id="results-container">
-                <div id="results-area" class="results-area"></div>
+                <div class="column" id="results-container">
+                    <div id="results-header">
+                        <h2>Welcome to CryptoMania!</h2>
+                        <p>Choose a utility from a list of options to the left. Your results will display within the frame below!</p>
+                    </div>
+                    <div id="results-area" class="results-area"></div>
+                </div>
             </div>
         </div>
         
