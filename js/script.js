@@ -17,22 +17,31 @@ var con2dol = $('#con2dol');
             console.log('There was a problem with the fetch operation', error);
         }
     }
-  
+  getData();
     function populateDropdowns(coins) {
       const coinDropdown1 = document.getElementById('coin1');
       const coinDropdown2 = document.getElementById('coin2');
   
+      
       coins.forEach(coin => {
-        const option1 = document.createElement('option');
-        option1.value = coin;
-        option1.text = coin;
-        coinDropdown1.appendChild(option1);
-  
-        const option2 = document.createElement('option');
-        option2.value = coin;
-        option2.text = coin;
-        coinDropdown2.appendChild(option2);
+        if (!coinExists(coinDropdown1, coin)) {
+          const option1 = document.createElement('option');
+          option1.value = coin;
+          option1.text = coin;
+          coinDropdown1.appendChild(option1);
+        }
+    
+        if (!coinExists(coinDropdown2, coin)) {
+          const option2 = document.createElement('option');
+          option2.value = coin;
+          option2.text = coin;
+          coinDropdown2.appendChild(option2);
+        }
       });
+    }
+    
+    function coinExists(dropdown, coin) {
+      return Array.from(dropdown.options).some(option => option.value === coin);
     }
   
     async function fetchCoinInfo(coin) {
@@ -59,7 +68,7 @@ var con2dol = $('#con2dol');
       getData().then(data => {
         const coins = Object.keys(data.RAW);
         populateDropdowns(coins);
-  
+
         const coin1 = document.getElementById('coin1').value;
         const coin2 = document.getElementById('coin2').value;
   
