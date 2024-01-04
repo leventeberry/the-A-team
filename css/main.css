@@ -80,6 +80,7 @@ body{
 
 .accordion{
   width: 25vw;
+  display: inline-block;
   text-align: center;
   height: 100%;
   padding: 10px;
@@ -194,4 +195,5 @@ input:active{
 
 #results-header p {
   font-size: 1.25rem;
+  
 }
