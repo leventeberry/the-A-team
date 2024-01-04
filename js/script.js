@@ -12,11 +12,16 @@ var con2dol = $('#con2dol');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            
             return await response.json();
+            
         } catch (error) {
             console.log('There was a problem with the fetch operation', error);
         }
     }
+    
+    getData().then(data => console.log(data));
+
   getData();
     function populateDropdowns(coins) {
       const coinDropdown1 = document.getElementById('coin1');
