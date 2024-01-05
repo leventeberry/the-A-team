@@ -27,9 +27,9 @@ var con2dol = $('#con2dol');
   const coinNames  = {
     BTC: 'Bitcoin',
     ETH: 'Ethereum',
-    Doge: 'Doggecoin',
+    DOGE: 'Dogecoin',
     XRP: 'XRP',
-    Sol: 'Solana'
+    SOL: 'Solana'
   };
     function populateDropdowns(coins) {
       const coinDropdown1 = document.getElementById('coin1');
@@ -97,20 +97,20 @@ var con2dol = $('#con2dol');
             if (info1) {
             comparisonResult.innerHTML += `<div class="coin-info">
             <p class="coin-name">${coinNames[coin1]}</p>
-            <p class="info-item">Price: $${info1.price.toFixed(2)} USD</p>
-            <p class="info-item">Market Cap: ${info1.marketCap.toFixed(2)}</p>
-            <p class="info-item">Volume 24h: ${info1.volume24h.toFixed(2)}</p>
-            <p class="info-item">Low 24h: ${info1.low24hour.toFixed(2)}</p>
+            <p class="info-item">Price: $${info1.price.toLocaleString()} USD</p>
+            <p class="info-item">Market Cap: ${info1.marketCap.toLocaleString()}</p>
+            <p class="info-item">Volume 24h: ${info1.volume24h.toLocaleString()}</p>
+            <p class="info-item">Low 24h: ${info1.low24hour.toLocaleString()}</p>
           </div>`;
             }
             
             if (info2) {
               comparisonResult.innerHTML += `<div class="coin-info">
               <p class="coin-name">${coinNames[coin2]}</p>
-              <p class="info-item">Price: $${info2.price.toFixed(2)} USD</p>
-              <p class="info-item">Market Cap: ${info2.marketCap.toFixed(2)}</p>
-              <p class="info-item">Volume 24h: ${info2.volume24h.toFixed(2)}</p>
-            <p class="info-item">Low 24h: ${info2.low24hour.toFixed(2)}</p>
+              <p class="info-item">Price: $${info2.price.toLocaleString()} USD</p>
+              <p class="info-item">Market Cap: ${info2.marketCap.toLocaleString()}</p>
+              <p class="info-item">Volume 24h: ${info2.volume24h.toLocaleString()}</p>
+            <p class="info-item">Low 24h: ${info2.low24hour.toLocaleString()}</p>
             </div>`;
             }
           });
