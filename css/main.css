@@ -197,3 +197,29 @@ input:active{
   font-size: 1.25rem;
   
 }
+
+/* ``````````````Styling for compare coins results```````````````` */
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.coin-info {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.coin-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--select-bg-color);
+}
+
+.info-item {
+  font-size: 16px;
+  margin-bottom: 3px;
+  
+}

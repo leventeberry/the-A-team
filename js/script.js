@@ -23,6 +23,14 @@ var con2dol = $('#con2dol');
     getData().then(data => console.log(data));
 
   getData();
+
+  const coinNames  = {
+    BTC: 'Bitcoin',
+    ETH: 'Ethereum',
+    Doge: 'Doggecoin',
+    XRP: 'XRP',
+    Sol: 'Solana'
+  };
     function populateDropdowns(coins) {
       const coinDropdown1 = document.getElementById('coin1');
       const coinDropdown2 = document.getElementById('coin2');
@@ -32,14 +40,14 @@ var con2dol = $('#con2dol');
         if (!coinExists(coinDropdown1, coin)) {
           const option1 = document.createElement('option');
           option1.value = coin;
-          option1.text = coin;
+          option1.text = coinNames[coin];
           coinDropdown1.appendChild(option1);
         }
     
         if (!coinExists(coinDropdown2, coin)) {
           const option2 = document.createElement('option');
           option2.value = coin;
-          option2.text = coin;
+          option2.text = coinNames[coin];
           coinDropdown2.appendChild(option2);
         }
       });
@@ -61,7 +69,8 @@ var con2dol = $('#con2dol');
                   const price = data.RAW[coin].USD.PRICE;
                   const marketCap = data.RAW[coin].USD.MKTCAP;
                   const volume24h = data.RAW[coin].USD.VOLUME24HOUR;
-                  return { price, marketCap, volume24h };
+                  const low24hour  = data.RAW[coin].USD.LOW24HOUR;
+                  return { price, marketCap, volume24h, low24hour };
               }
               return null;
         default:
@@ -82,21 +91,27 @@ var con2dol = $('#con2dol');
             const comparisonResult = document.getElementById('results-area');
             comparisonResult.innerHTML = '';
             if(coin1 === coin2){
-                comparisonResult.innerHTML = `<p>Error: Please select two different coins for comparison</p>`;
+                comparisonResult.innerHTML = `<p class="error-message">Error: Please select two different coins for comparison</p>`;
                 return;
             }
             if (info1) {
-              comparisonResult.innerHTML += `<p>${coin1}:</p>`;
-              comparisonResult.innerHTML += `<p>Price: $${info1.price.toFixed(2)} USD</p>`;
-              comparisonResult.innerHTML += `<p>Market Cap: ${info1.marketCap}</p>`;
-              comparisonResult.innerHTML += `<p>Volume 24h: ${info1.volume24h}</p><br>`;
+            comparisonResult.innerHTML += `<div class="coin-info">
+            <p class="coin-name">${coinNames[coin1]}</p>
+            <p class="info-item">Price: $${info1.price.toFixed(2)} USD</p>
+            <p class="info-item">Market Cap: ${info1.marketCap.toFixed(2)}</p>
+            <p class="info-item">Volume 24h: ${info1.volume24h.toFixed(2)}</p>
+            <p class="info-item">Low 24h: ${info1.low24hour.toFixed(2)}</p>
+          </div>`;
             }
             
             if (info2) {
-              comparisonResult.innerHTML += `<p>${coin2}:</p>`;
-              comparisonResult.innerHTML += `<p>Price: $${info2.price.toFixed(2)} USD</p>`;
-              comparisonResult.innerHTML += `<p>Market Cap: ${info2.marketCap}</p>`;
-              comparisonResult.innerHTML += `<p>Volume 24h: ${info2.volume24h}</p>`;
+              comparisonResult.innerHTML += `<div class="coin-info">
+              <p class="coin-name">${coinNames[coin2]}</p>
+              <p class="info-item">Price: $${info2.price.toFixed(2)} USD</p>
+              <p class="info-item">Market Cap: ${info2.marketCap.toFixed(2)}</p>
+              <p class="info-item">Volume 24h: ${info2.volume24h.toFixed(2)}</p>
+            <p class="info-item">Low 24h: ${info2.low24hour.toFixed(2)}</p>
+            </div>`;
             }
           });
       });
