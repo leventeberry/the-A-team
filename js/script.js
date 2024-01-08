@@ -34,7 +34,20 @@ function getData() {
 getData();
 
 
-
+function getCryptoPrice() {
+  
+    fetch(getData())
+        .then(response => response.json())
+        .then(data => {
+            
+            var price = data.USD;
+            document.getElementById("priceDisplay").innerHTML = `Current Price: $${price}`;
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.getElementById("priceDisplay").innerHTML = 'Error fetching data';
+        });
+}
 
 
 if (con2coin.value && con2dol.value) {
