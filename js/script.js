@@ -18,6 +18,7 @@ var con2dol = $('#con2dol');
         } catch (error) {
             console.log('There was a problem with the fetch operation', error);
         }
+
     }
     
     getData().then(data => console.log(data));
@@ -82,10 +83,8 @@ var con2dol = $('#con2dol');
       getData().then(data => {
         const coins = Object.keys(data.RAW);
         populateDropdowns(coins);
-
         const coin1 = document.getElementById('coin1').value;
         const coin2 = document.getElementById('coin2').value;
-  
         Promise.all([fetchCoinInfo(coin1), fetchCoinInfo(coin2)])
           .then(([info1, info2]) => {
             const comparisonResult = document.getElementById('results-area');
@@ -103,8 +102,8 @@ var con2dol = $('#con2dol');
             <p class="info-item">Low 24h: ${info1.low24hour.toLocaleString()}</p>
           </div>`;
             }
-            
-            if (info2) {
+6:52
+if (info2) {
               comparisonResult.innerHTML += `<div class="coin-info">
               <p class="coin-name">${coinNames[coin2]}</p>
               <p class="info-item">Price: $${info2.price.toLocaleString()} USD</p>
@@ -117,9 +116,20 @@ var con2dol = $('#con2dol');
       });
     }
   
-    document.getElementById('compare-submit').addEventListener('click', compareCoins);
-  });
+function getCryptoPrice() {
   
+    fetch(getData())
+        .then(response => response.json())
+        .then(data => {
+            
+            var price = data.USD;
+            document.getElementById("priceDisplay").innerHTML = `Current Price: $${price}`;
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.getElementById("priceDisplay").innerHTML = 'Error fetching data';
+        });
+}
 
 if (con2coin.value && con2dol.value) {
     // alert the user only one input allowed
