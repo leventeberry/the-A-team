@@ -151,7 +151,7 @@ body{
   background-color: var(--main-bg-color);
 }
 
-input{
+input {
   background-color: var(--main-bg-color-alt);
   border-radius: 3px;
   font-size: 1.25rem;
@@ -163,6 +163,13 @@ input:active{
   background-color: var(--main-bg-color-alt);
   margin-top: 5px;
   cursor: pointer;
+}
+
+#history-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
 }
 
 /* ```````````````` RESULTS SECTION ````````````````*/
@@ -178,7 +185,7 @@ input:active{
 .results-area{
   border: 2px dashed var(--header-title-outline);
   padding: 20px;
-  text-align: center;
+  text-align: left;
   height: 65%;
   width: 90%;
 }
@@ -197,6 +204,58 @@ input:active{
   font-size: 1.25rem;
   
 }
+
+/* ```````````````` HISTORY RESULTS LAYOUT ````````````````*/
+
+#history-results-container {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* History Title  */
+#history-title h3 {
+  font-size: 2rem;
+}
+
+#history-headers {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+#history-headers span {
+  font-size: 1.3rem;
+}
+
+#action-head {
+  padding-left: 50px;
+}
+
+/* History List */
+#history-list {
+  display: flex;
+  flex-direction: column-reverse;
+  color: var(--header-title-outline);
+  padding-left: 50px;
+  margin-top: 15px;
+  height: 100%;
+}
+
+/* History List Items */
+#history-list li {
+  list-style: decimal;
+  font-size: 1.5rem;
+  padding-left: 50px;
+  margin-bottom: 4px;
+}
+
+.history-button-container input {
+  margin: 3px;
+}
+
 
 /* ``````````````Styling for compare coins results```````````````` */
 
@@ -224,6 +283,7 @@ input:active{
   
 }
 
+/* ```````````````` MEDIA QUERIES ````````````````*/
 
 @media screen and (max-width: 799px){
   #results-header{

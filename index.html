@@ -79,31 +79,40 @@
                         </div>
                         <h3 class="accordion-title">Converter</h3>
                         <div class="accord-content-container" id="converter-container">
-                            <p class="p-description">Convert the </p>
+                            <p class="p-description">Enter Amount</p>
 
-                            <div class="select-container">
-                                <label for="choice2">Choose coin to convert:</label>
-                                <select class="select-list" name="choice2" id="choice2">
-                                    <option class="menu-option" value="bitcoin">Bitcoin</option>
-                                    <option class="menu-option" value="ethereum">Ethereum</option>
-                                    <option class="menu-option" value="doge">Doge</option>
-                                    <option class="menu-option" value="solana">Solana</option>
-                                    <option class="menu-option" value="xrp">XRP</option>
-                                </select>
-                            </div>
+                            <div class="select-container3">
+                                <Form> Conversion
+                                    <input type="text" name="Amount" id="amount" placeholder="Enter Amount" Requ>
+                                    <label id="fromCurrencyName"></label>
+                                    <div class="select-field">
 
-                            <div class="input-container">
-                                <label for="con2coin" id="con2coin-label">Enter Amount in Dollars:</label>
-                                <input type="textarea" name="con2coin" id="con2coin">
-                            </div>
-                            
-                            <div class="input-container">
-                                <label for="con2dol" id="con2dol-label">Enter Amount in Coins:</label>
-                                <input type="textarea" name="con2dol" id="con2dol">
-                            </div>
+                                        <select name="fromCurrency" id="fromCurrency">
+                                            <option class="menu-option" value="BTC">Bitcoin</option>
+                                            <option class="menu-option" value="ETH">Ethereum</option>
+                                            <option class="menu-option" value="doge">Doge</option>
+                                            <option class="menu-option" value="solana">Solana</option>
+                                            <option class="menu-option" value="xrp">XRP</option>
+                                            <option class="menu-option" value="USD">USD</option>
 
-                            <input type="submit" value="Submit">
-                        </div>
+                                        </select>
+                                        <select name="toCurrency" id="toCurrency">
+                                            <option class="menu-option" value="BTC">Bitcoin</option>
+                                            <option class="menu-option" value="ETH">Ethereum</option>
+                                            <option class="menu-option" value="doge">Doge</option>
+                                            <option class="menu-option" value="solana">Solana</option>
+                                            <option class="menu-option" value="xrp">XRP</option>
+                                            <option class="menu-option" value="USD">USD</option>
+
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                </Form>
+                                 <button id="results">
+                                   
+                                 </button>
+                            </div>
                         <h3 class="accordion-title">History</h3>
                         <div class="accord-content-container input-container" id="history-container">
                             <div class="history-button-container">
