@@ -3,16 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script> <!-- adding jQuery library -->
-        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> <!-- adding jQueryUI CDN -->
-        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-        <script>dayjs().format()</script>
         <link rel="stylesheet" href="/css/reset.css">
         <link rel="stylesheet" href="css/main.css">
         <title>CryptoMania</title>
-        <script>
-            
-        </script>
     </head>
     <body>
 
@@ -113,15 +106,15 @@
                         </div>
                         <h3 class="accordion-title">History</h3>
                         <div class="accord-content-container input-container" id="history-container">
-                            <div>
-                                <ul id="history-list">
-                                    <li>Converted: XRP(100) to BTC(0.000344)</li>
-                                    <li>Converted: XRP(100) to BTC(0.000344)</li>
-                                    <li>Converted: XRP(100) to BTC(0.000344)</li>
-                                    <li>Converted: XRP(100) to BTC(0.000344)</li>
-                                </ul>
+                            <div class="history-button-container">
+                                <input type="button" value="Show History" onclick="showHistory()">
                             </div>
-                            <input type="button" value="Clear History">
+                            <div class="history-button-container">
+                                <input type="button" value="Hide History" onclick="hideHistory()">
+                            </div>
+                            <div class="history-button-container">
+                                <input type="button" value="Clear History" onclick="clearHistory()">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,7 +131,9 @@
             </div>
         </div>
         
-        
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script> <!-- adding jQuery library -->
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> <!-- adding jQueryUI CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
         <script src="js/script.js"></script> <!-- Custom JavaScript Link -->
     </body>
 </html>
