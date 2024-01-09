@@ -223,3 +223,26 @@ input:active{
   margin-bottom: 3px;
   
 }
+
+
+@media screen and (max-width: 799px){
+  #results-header{
+    position: relative;
+  }
+  .results-area{
+    position: relative;
+    top: 150px;
+  }
+  #accordion-header h2{
+    font-size: 1px;
+    margin-bottom: 10px;
+   }
+   #accordion-header{
+    min-height: 100px;
+   }
+}
+@media screen and (max-width: 982px){
+  #accordion-header h2{
+    font-size: 2rem;
+   }
+}
