@@ -13,25 +13,41 @@ const coinNames  = {
 //Accordion Function
 $( function() {
   $( "#accordion" ).accordion({
-      heightStyle: "content"
+      heightStyle: "content",
+
+      collapsible:true
   });
 } );
 
 //Get Price Function
-function getCryptoPrice() {
-  
-  fetch(getData())
-      .then(response => response.json())
-      .then(data => {
-          
-          var price = data.USD;
-          document.getElementById("priceDisplay").innerHTML = `Current Price: $${price}`;
-      })
-      .catch(error => {
-          console.error('Error fetching data:', error);
-          document.getElementById("priceDisplay").innerHTML = 'Error fetching data';
-      });
+
+//query selector 
+var coinBtn = document.querySelector("#coin-selection");
+
+// Event listner when submit is clicked
+coinBtn.addEventListener("click", getCryptoPrices);
+
+
+// function cryptoprices will retrieve coin value from api.
+function getCryptoPrices() {
+    var Cryptocoin = document.getElementById("cryptoSelection").value;
+    var Urlcoin = `https://min-api.cryptocompare.com/data/price?fsym=${Cryptocoin}&tsyms=USD`;
+
+    fetch(Urlcoin)
+        .then(response => response.json())
+        .then(data => {
+           
+            var price = data.USD;
+          // display users selected coin with coin name and price
+          document.getElementById("results-area").innerHTML=`Crypto Prices`;
+            document.getElementById("results-area").innerHTML =`${Cryptocoin} Current Price: $${price} `;
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.getElementById("results-area").innerHTML = 'Error fetching data';
+        });
 }
+
 
 //Get main data from API
 async function getData() {
@@ -134,10 +150,8 @@ function compareCoins() {
       });
   });
 }
-
+ 
 //Compare Coins Event Listner (Initialization)
 document.getElementById('compare-submit').addEventListener('click', compareCoins);
 
   
-
- 
