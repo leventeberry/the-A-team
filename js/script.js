@@ -251,3 +251,63 @@ function compareCoins() {
 //Compare Coins Event Listner (Initialization)
 document.getElementById('compare-submit').addEventListener('click', compareCoins);
 
+// conversion code
+var click = document.querySelector("#results");
+   click.addEventListener("click", Converter);
+function Converter() {
+  selectCurrency = document.getElementById("toCurrency").value
+   fromcurrencySelect = document.getElementById("fromCurrency").value
+   amount = document.getElementById('amount').value
+   
+    var Urlconvert = `https://min-api.cryptocompare.com/data/price?fsym=${fromcurrencySelect}&tsyms=${selectCurrency}`;
+
+  fetch(Urlconvert)
+      .then(response => response.json())
+      .then(data => {
+         
+        console.log (amount)
+          console.log (data)
+          console.log (data.BTC,"22", data.DOGE)
+          if (selectCurrency === 'BTC') {
+            var res = data.BTC;
+        }
+        if (selectCurrency === 'ETH') {
+            var res = data.ETH;
+        }
+        if (selectCurrency === 'DOGE') {
+            var res = data.DOGE;
+        }
+        if (selectCurrency === 'XRP') {
+            var res = data.XRP;
+        }
+        if (selectCurrency === 'SOL') {
+            var res = data.SOL;
+        }
+        if (selectCurrency === 'USD') {
+          var res = data.USD;
+        }
+
+        document.getElementById("results-area").innerHTML=`Result is:`;
+        document.getElementById("results-area").innerHTML =`${res * amount} `;
+      })
+      .catch(error => {
+          console.error('Error fetching data:', error);
+          document.getElementById("results-area").innerHTML = 'Error fetching data';
+      });
+}
+
+
+//Get main data from API
+async function getData() {
+    try {
+          const response = await fetch(Url + apiKey);
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          
+          return response.json();
+          
+      } catch (error) {
+          console.log('There was a problem with the fetch operation', error);
+      }
+}
