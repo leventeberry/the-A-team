@@ -251,30 +251,3 @@ function compareCoins() {
 //Compare Coins Event Listner (Initialization)
 document.getElementById('compare-submit').addEventListener('click', compareCoins);
 
-  // Conversion fucnction
-var click = document.querySelector("#results");
-   click.addEventListener("click", Converter);
-function Converter() {
-  selectCurrency = document.getElementById("toCurrency").value
-   fromcurrencySelect = document.getElementById("fromCurrency").value
-   amount = document.getElementById('amount').value
-   
-    var Urlconvert = `https://min-api.cryptocompare.com/data/price?fsym=${fromcurrencySelect}&tsyms=${selectCurrency}`;
-
-  fetch(Urlconvert)
-      .then(response => response.json())
-      .then(data => {
-         
-        console.log (amount)
-          console.log (data)
-        // display users selected coin with coin name and price
-        
-
-          document.getElementById("results-area").innerHTML =`${data.selectCurrency.toLocaleString ()* amount}`;
-      })
-      .catch(error => {
-          console.error('Error fetching data:', error);
-          document.getElementById("results-area").innerHTML = 'Error fetching data';
-      });
-}
-
