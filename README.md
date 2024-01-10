@@ -4,6 +4,12 @@
 
 This project is a collaborative effort by our web development team to create a dynamic and interactive website. The primary focus is on showcasing our ability to integrate and utilize various browser and third-party APIs, demonstrating a wide range of functionalities and interactive features.
 
+## Live Preview
+
+![Live Preview](img/2024-01-10 23-02-50.gif)
+
+You can view a live preview of the application [here](https://hokage-216.github.io/the-A-team/)
+
 ### Key Features
 
 - **Real-time Data Display**: Utilizing third-party APIs to fetch and display real-time data.
