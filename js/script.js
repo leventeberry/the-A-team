@@ -251,4 +251,3 @@ function compareCoins() {
 //Compare Coins Event Listner (Initialization)
 document.getElementById('compare-submit').addEventListener('click', compareCoins);
 
-  
