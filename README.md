@@ -1,4 +1,4 @@
-# Web Development Project: API Integration Showcase
+# CryptoMainia
 
 ## Project Overview
 
