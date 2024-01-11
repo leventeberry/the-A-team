@@ -252,23 +252,25 @@ function compareCoins() {
 document.getElementById('compare-submit').addEventListener('click', compareCoins);
 
 // conversion code
-var click = document.querySelector("#results");
-   click.addEventListener("click", Converter);
+var click = document.querySelector("#converter-submit");
+click.addEventListener("click", Converter);
+
 function Converter() {
-  selectCurrency = document.getElementById("toCurrency").value
-   fromcurrencySelect = document.getElementById("fromCurrency").value
-   amount = document.getElementById('amount').value
+  const selectCurrency = document.getElementById("toCurrency").value;
+  const fromcurrencySelect = document.getElementById("fromCurrency").value;
+  const amount = document.getElementById('amount').value;
    
-    var Urlconvert = `https://min-api.cryptocompare.com/data/price?fsym=${fromcurrencySelect}&tsyms=${selectCurrency}`;
+  var Urlconvert = `https://min-api.cryptocompare.com/data/price?fsym=${fromcurrencySelect}&tsyms=${selectCurrency}`;
 
   fetch(Urlconvert)
       .then(response => response.json())
       .then(data => {
          
-        console.log (amount)
-          console.log (data)
-          console.log (data.BTC,"22", data.DOGE)
-          if (selectCurrency === 'BTC') {
+        console.log (amount);
+        console.log (data);
+        console.log (data.BTC,"22", data.DOGE);
+        
+        if (selectCurrency === 'BTC') {
             var res = data.BTC;
         }
         if (selectCurrency === 'ETH') {
@@ -287,8 +289,7 @@ function Converter() {
           var res = data.USD;
         }
 
-        document.getElementById("results-area").innerHTML=`Result is:`;
-        document.getElementById("results-area").innerHTML =`${res * amount} `;
+        document.getElementById("results-area").innerHTML=`Result is: ${amount} ${fromcurrencySelect} is equal to ${res * amount} ${selectCurrency}`; //dispay result to string in results container
       })
       .catch(error => {
           console.error('Error fetching data:', error);
