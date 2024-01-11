@@ -20,13 +20,58 @@ $( function() {
   });
 } );
 
+//Modal Function
+$( function() {
+  $("#modal").dialog({
+    modal: true,
+    resizable: false,
+    autoOpen: true,
+    dialogClass: "alert",
+    width: 250,
+    height: 250,
+    title: "ERROR!"
+  })
+});
+
+//Display Error Function
+function displayError(error) {
+
+  // create modal container
+  const errorMessage = $("<div></div>");
+  errorMessage.attr({
+    class: ".ui-widget",
+    id: "modal"
+  });
+  // add modal title
+  const errorMessageTitle = $("<div></div>");
+  errorMessageTitle.attr({
+    class: ".ui-widget-header",
+    id: "modal-title"
+  });
+  errorMessageTitle.text(error.errorTitle);
+  errorMessage.append(errorMessageTitle);
+  // add error message
+  const errorMessageMsg = $("<div></div>");
+  errorMessageMsg.attr({
+    class: ".ui-widget-header",
+    id: "modal-content"
+  });
+  errorMessageMsg.text(error.errorMessage);
+  errorMessage.append(errorMessageMsg);
+
+}
+
 // set the search history in local storage
 function setSearchHistory(searchHistory) {
   try {
       const historyJson = JSON.stringify(searchHistory);
       localStorage.setItem('searchHistory', historyJson);
   } catch (error) {
-      console.error('Failed to save search history:', error);
+      const errorEl = {
+        errorTitle: "Failed to save search history: ",
+        errorMessage: error
+      }
+      return displayError(errorEl);
   }
 }
 
@@ -36,8 +81,11 @@ function getSearchHistory() {
       const historyJson = localStorage.getItem('searchHistory');
       return historyJson ? JSON.parse(historyJson) : [];
   } catch (error) {
-      console.error('Failed to retrieve search history:', error);
-      return [];
+    const errorEl = {
+      errorTitle: "Failed to retreive search history: ",
+      errorMessage: error
+    }
+    return displayError(errorEl);
   }
 }
 
@@ -76,7 +124,7 @@ function showHistory() {
       } else if (history[i].type === "Comparison") {
           listItem.text(`Compared: ${history[i].coin1} to ${history[i].coin2} (${formattedTimestamp})`);
       } else if (history[i].type === "Converted") {
-          listItem.text(`Converted: ${history[i].input} to ${history[i].output} (${formattedTimestamp})`);
+          listItem.text(`Converted: ${history[i].input} ${history[i].convertFrom} equals ${history[i].output} ${history[i].convertTo} (${formattedTimestamp})`);
       }
 
       historyList.append(listItem);
@@ -128,8 +176,11 @@ function getCryptoPrices() {
       setSearchHistory(searchHistory);
     })
     .catch(error => {
-      console.error('Error fetching data:', error);
-      document.getElementById("results-area").innerHTML = 'Error fetching data';
+      const errorEl = {
+        errorTitle: "Error fetching data: ",
+        errorMessage: error
+      }
+      displayError(errorEl);
     });
 }
 
@@ -139,13 +190,22 @@ async function getData() {
       try {
             const response = await fetch(Url + apiKey);
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                const errorEl = {
+                  errorTitle: "Network response was not ok. Try again!",
+                  errorMessage: response
+                }
+                displayError(errorEl);
             }
             
             return response.json();
             
         } catch (error) {
-            console.log('There was a problem with the fetch operation', error);
+            const errorEl = {
+              errorTitle: "There was a problem with the fetch operation",
+              errorMessage: error
+            }
+            displayError(errorEl);
+            
         }
   }
 
@@ -255,20 +315,17 @@ document.getElementById('compare-submit').addEventListener('click', compareCoins
 var click = document.querySelector("#converter-submit");
 click.addEventListener("click", Converter);
 
-function Converter() {
+async function Converter() {
   const selectCurrency = document.getElementById("toCurrency").value;
   const fromcurrencySelect = document.getElementById("fromCurrency").value;
   const amount = document.getElementById('amount').value;
    
   var Urlconvert = `https://min-api.cryptocompare.com/data/price?fsym=${fromcurrencySelect}&tsyms=${selectCurrency}`;
 
-  fetch(Urlconvert)
+  await fetch(Urlconvert)
       .then(response => response.json())
       .then(data => {
-         
-        console.log (amount);
         console.log (data);
-        console.log (data.BTC,"22", data.DOGE);
         
         if (selectCurrency === 'BTC') {
             var res = data.BTC;
@@ -288,12 +345,27 @@ function Converter() {
         if (selectCurrency === 'USD') {
           var res = data.USD;
         }
-
+        //adding history functionality
+        const userConvert = {
+          type : "Converter",
+          input: amount,
+          output: res * amount,
+          convertTo: selectCurrency,
+          convertFrom: fromcurrencySelect,
+          timestamp: dayjs().format('MM/DD/YYYY @ h:mm A')
+        }
+         //add search to the history
+         searchHistory.push(userConvert);
+         //add search to localstorage
+         setSearchHistory(searchHistory);
         document.getElementById("results-area").innerHTML=`Result is: ${amount} ${fromcurrencySelect} is equal to ${res * amount} ${selectCurrency}`; //dispay result to string in results container
       })
       .catch(error => {
-          console.error('Error fetching data:', error);
-          document.getElementById("results-area").innerHTML = 'Error fetching data';
+          const errorEl = {
+            errorTitle: "Error fetching data: ",
+            errorMessage: error
+          }
+          displayError(errorEl);
       });
 }
 
