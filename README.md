@@ -8,7 +8,7 @@ This project is a collaborative effort by our web development team to create a d
 
 ![Live Preview](img/2024-01-10_23-02-50.gif)
 
-You can view a live preview of the application [here](https://hokage-216.github.io/the-A-team/)
+You can view a live preview of the application [here]([https://hokage-216.github.io/the-A-team/](https://cryptomania-ateam.netlify.app/))
 
 ### Key Features
 
